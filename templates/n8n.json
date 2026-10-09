@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "slug": "n8n",
+  "name": "n8n",
+  "category": "other",
+  "icon": "🔗",
+  "description": "Fair-code workflow automation.",
+  "image": "n8nio/n8n",
+  "tag": "1.123.84",
+  "ports": [
+    {
+      "container": 5678,
+      "label": "Web UI",
+      "defaultHost": 5678
+    }
+  ],
+  "env": [
+    {
+      "key": "N8N_SECURE_COOKIE",
+      "label": "Secure cookie",
+      "default": "false",
+      "description": "Set false when serving over plain HTTP."
+    },
+    {
+      "key": "GENERIC_TIMEZONE",
+      "label": "Timezone",
+      "description": "e.g. Europe/London"
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/home/node/.n8n",
+      "label": "Data"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "docsUrl": "https://docs.n8n.io/hosting/"
+}

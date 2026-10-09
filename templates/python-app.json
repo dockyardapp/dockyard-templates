@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "slug": "python-app",
+  "name": "Python app",
+  "category": "devtools",
+  "icon": "🐍",
+  "description": "Python 3.12 runtime serving a directory with the stdlib HTTP server on port 8000.",
+  "image": "python",
+  "tag": "3.12-slim",
+  "ports": [
+    {
+      "container": 8000,
+      "label": "HTTP",
+      "defaultHost": 8000
+    }
+  ],
+  "env": [
+    {
+      "key": "PYTHONUNBUFFERED",
+      "label": "Unbuffered output",
+      "default": "1"
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/app",
+      "label": "App code"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "command": [
+    "python",
+    "-m",
+    "http.server",
+    "8000",
+    "--directory",
+    "/app"
+  ],
+  "notes": "Replace the command and mount your code at /app to run a real application.",
+  "docsUrl": "https://hub.docker.com/_/python"
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "slug": "filebrowser",
+  "name": "File Browser",
+  "category": "storage",
+  "icon": "📁",
+  "description": "A web file manager over a directory you choose.",
+  "image": "filebrowser/filebrowser",
+  "tag": "v2.63.23",
+  "ports": [
+    {
+      "container": 80,
+      "label": "Web UI",
+      "defaultHost": 8081
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/srv",
+      "label": "The directory to browse"
+    },
+    {
+      "container": "/database.db",
+      "label": "Users and settings database",
+      "named": true
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "notes": "The first user to sign in is the administrator. Set the /srv host path to the directory you actually want to expose.",
+  "docsUrl": "https://filebrowser.org/installation"
+}

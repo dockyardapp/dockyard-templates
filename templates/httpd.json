@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "httpd",
+  "name": "Apache httpd",
+  "category": "web",
+  "icon": "🪶",
+  "description": "The Apache HTTP Server.",
+  "image": "httpd",
+  "tag": "2.4-alpine",
+  "ports": [
+    {
+      "container": 80,
+      "label": "HTTP",
+      "defaultHost": 8080
+    }
+  ],
+  "env": [],
+  "volumes": [
+    {
+      "container": "/usr/local/apache2/htdocs",
+      "label": "Web root"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "docsUrl": "https://hub.docker.com/_/httpd"
+}

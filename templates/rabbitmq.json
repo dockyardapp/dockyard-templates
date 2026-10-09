@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "slug": "rabbitmq",
+  "name": "RabbitMQ",
+  "category": "messaging",
+  "icon": "🐰",
+  "description": "Message broker with the management web UI.",
+  "image": "rabbitmq",
+  "tag": "4-management",
+  "ports": [
+    {
+      "container": 5672,
+      "label": "AMQP",
+      "defaultHost": 5672
+    },
+    {
+      "container": 15672,
+      "label": "Management UI",
+      "defaultHost": 15672
+    }
+  ],
+  "env": [
+    {
+      "key": "RABBITMQ_DEFAULT_USER",
+      "label": "Default user",
+      "default": "admin"
+    },
+    {
+      "key": "RABBITMQ_DEFAULT_PASS",
+      "label": "Default password",
+      "required": true,
+      "secret": true
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/var/lib/rabbitmq",
+      "label": "Data"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "healthcheck": {
+    "test": [
+      "CMD",
+      "rabbitmq-diagnostics",
+      "-q",
+      "ping"
+    ],
+    "intervalSec": 15,
+    "timeoutSec": 10,
+    "retries": 5
+  },
+  "notes": "The management UI is on 15672; AMQP on 5672.",
+  "docsUrl": "https://hub.docker.com/_/rabbitmq"
+}

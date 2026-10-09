@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "prometheus",
+  "name": "Prometheus",
+  "category": "monitoring",
+  "icon": "🔥",
+  "description": "Metrics collection and time-series database.",
+  "image": "prom/prometheus",
+  "tag": "v3.13.4",
+  "ports": [
+    {
+      "container": 9090,
+      "label": "Web UI",
+      "defaultHost": 9090
+    }
+  ],
+  "env": [],
+  "volumes": [
+    {
+      "container": "/prometheus",
+      "label": "Data"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "docsUrl": "https://hub.docker.com/r/prom/prometheus"
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "slug": "mysql",
+  "name": "MySQL",
+  "category": "database",
+  "icon": "🐬",
+  "description": "MySQL 8 LTS relational database.",
+  "image": "mysql",
+  "tag": "8.4",
+  "ports": [
+    {
+      "container": 3306,
+      "label": "MySQL",
+      "defaultHost": 3306
+    }
+  ],
+  "env": [
+    {
+      "key": "MYSQL_ROOT_PASSWORD",
+      "label": "Root password",
+      "required": true,
+      "secret": true,
+      "description": "Required. Password for the MySQL root account."
+    },
+    {
+      "key": "MYSQL_DATABASE",
+      "label": "Database",
+      "description": "Created on first start."
+    },
+    {
+      "key": "MYSQL_USER",
+      "label": "User",
+      "description": "Created on first start."
+    },
+    {
+      "key": "MYSQL_PASSWORD",
+      "label": "User password",
+      "secret": true
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/var/lib/mysql",
+      "label": "Data"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "healthcheck": {
+    "test": [
+      "CMD",
+      "mysqladmin",
+      "ping",
+      "-h",
+      "127.0.0.1"
+    ],
+    "intervalSec": 10,
+    "timeoutSec": 5,
+    "retries": 10
+  },
+  "notes": "MYSQL_ROOT_PASSWORD is required. The data directory is initialised on first start only.",
+  "docsUrl": "https://hub.docker.com/_/mysql"
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "slug": "adminer",
+  "name": "Adminer",
+  "category": "devtools",
+  "icon": "🗄️",
+  "description": "Single-file database administration UI for MySQL, PostgreSQL and more.",
+  "image": "adminer",
+  "tag": "4",
+  "ports": [
+    {
+      "container": 8080,
+      "label": "Web UI",
+      "defaultHost": 8080
+    }
+  ],
+  "env": [
+    {
+      "key": "ADMINER_DEFAULT_SERVER",
+      "label": "Default server",
+      "description": "Hostname shown in the login form, e.g. a database container name."
+    }
+  ],
+  "volumes": [],
+  "restartPolicy": "unless-stopped",
+  "notes": "Point it at a database container by hostname (both must share a Docker network).",
+  "docsUrl": "https://hub.docker.com/_/adminer"
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "slug": "mariadb",
+  "name": "MariaDB",
+  "category": "database",
+  "icon": "🦭",
+  "description": "The MariaDB relational database, a drop-in replacement for MySQL.",
+  "image": "mariadb",
+  "tag": "11.4",
+  "ports": [
+    {
+      "container": 3306,
+      "label": "MariaDB",
+      "defaultHost": 3306
+    }
+  ],
+  "env": [
+    {
+      "key": "MARIADB_ROOT_PASSWORD",
+      "label": "Root password",
+      "required": true,
+      "secret": true,
+      "description": "Required. The image refuses to start without it, or without one of the other root options."
+    },
+    {
+      "key": "MARIADB_DATABASE",
+      "label": "Database",
+      "description": "Created on first start."
+    },
+    {
+      "key": "MARIADB_USER",
+      "label": "Application user",
+      "description": "Created on first start, with access to the database above."
+    },
+    {
+      "key": "MARIADB_PASSWORD",
+      "label": "Application user password",
+      "secret": true
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/var/lib/mysql",
+      "label": "Data",
+      "named": true
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "docsUrl": "https://hub.docker.com/_/mariadb"
+}

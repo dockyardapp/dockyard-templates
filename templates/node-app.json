@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "slug": "node-app",
+  "name": "Node.js app",
+  "category": "devtools",
+  "icon": "🟩",
+  "description": "Node.js 22 runtime serving a minimal HTTP server on port 3000.",
+  "image": "node",
+  "tag": "22-alpine",
+  "ports": [
+    {
+      "container": 3000,
+      "label": "HTTP",
+      "defaultHost": 3000
+    }
+  ],
+  "env": [
+    {
+      "key": "NODE_ENV",
+      "label": "Environment",
+      "default": "production"
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/app",
+      "label": "App code"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "command": [
+    "node",
+    "-e",
+    "require('http').createServer((_,res)=>res.end('dockyard node-app ok\\n')).listen(3000)"
+  ],
+  "notes": "Replace the command and mount your code at /app to run a real application.",
+  "docsUrl": "https://hub.docker.com/_/node"
+}

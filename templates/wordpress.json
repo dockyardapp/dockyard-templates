@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "slug": "wordpress",
+  "name": "WordPress",
+  "category": "web",
+  "icon": "📝",
+  "description": "WordPress with the Apache web server.",
+  "image": "wordpress",
+  "tag": "6.7-apache",
+  "ports": [
+    {
+      "container": 80,
+      "label": "HTTP",
+      "defaultHost": 8080
+    }
+  ],
+  "env": [
+    {
+      "key": "WORDPRESS_DB_HOST",
+      "label": "Database host",
+      "default": "db:3306",
+      "description": "host:port of your MySQL/MariaDB container."
+    },
+    {
+      "key": "WORDPRESS_DB_USER",
+      "label": "Database user",
+      "default": "wordpress"
+    },
+    {
+      "key": "WORDPRESS_DB_PASSWORD",
+      "label": "Database password",
+      "required": true,
+      "secret": true
+    },
+    {
+      "key": "WORDPRESS_DB_NAME",
+      "label": "Database name",
+      "default": "wordpress"
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/var/www/html",
+      "label": "Site"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "notes": "WordPress needs a MySQL/MariaDB database. Deploy mysql first and point WORDPRESS_DB_HOST at it (e.g. my-mysql:3306).",
+  "docsUrl": "https://hub.docker.com/_/wordpress"
+}

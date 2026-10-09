@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "slug": "syncthing",
+  "name": "Syncthing",
+  "category": "storage",
+  "icon": "🔄",
+  "description": "Continuous file synchronisation between your own devices, with no server in the middle.",
+  "image": "syncthing/syncthing",
+  "tag": "2.1.6",
+  "ports": [
+    {
+      "container": 8384,
+      "label": "Web UI",
+      "defaultHost": 8384
+    },
+    {
+      "container": 22000,
+      "label": "Sync protocol",
+      "defaultHost": 22000
+    }
+  ],
+  "env": [
+    {
+      "key": "PUID",
+      "label": "Run as uid",
+      "default": "1000"
+    },
+    {
+      "key": "PGID",
+      "label": "Run as gid",
+      "default": "1000"
+    }
+  ],
+  "volumes": [
+    {
+      "container": "/var/syncthing",
+      "label": "Configuration and index",
+      "named": true
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "notes": "Port 22000 carries both TCP and UDP. This template publishes it as TCP, so add a UDP mapping by hand if your peers cannot connect.",
+  "docsUrl": "https://github.com/syncthing/syncthing"
+}
