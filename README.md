@@ -1,6 +1,6 @@
 # Dockyard templates
 
-Template files for [Dockyard](https://github.com/EliasL-git/dockyard), the Docker panel. The panel
+Template files for [Dockyard](https://github.com/dockyardapp/dockyard), the Docker panel. The panel
 pulls this repository live and serves what it finds here, so a template added in this repository
 appears in every install on the next refresh. No release, no rebuild, no restart.
 
