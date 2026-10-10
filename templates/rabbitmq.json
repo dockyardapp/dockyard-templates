@@ -3,7 +3,7 @@
   "slug": "rabbitmq",
   "name": "RabbitMQ",
   "category": "messaging",
-  "icon": "🐰",
+  "icon": "template",
   "description": "Message broker with the management web UI.",
   "image": "rabbitmq",
   "tag": "4-management",

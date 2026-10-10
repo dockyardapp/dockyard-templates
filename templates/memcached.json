@@ -3,7 +3,7 @@
   "slug": "memcached",
   "name": "Memcached",
   "category": "database",
-  "icon": "🧠",
+  "icon": "template",
   "description": "An in-memory key/value cache. Everything in it is lost on restart, by design.",
   "image": "memcached",
   "tag": "1.6.45",

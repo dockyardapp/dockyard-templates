@@ -17,7 +17,7 @@ process.
   "slug": "my-service",
   "name": "My Service",
   "category": "other",
-  "icon": "📦",
+  "icon": "template",
   "description": "One line, shown on the card.",
   "image": "vendor/image",
   "tag": "1.2.3",
@@ -56,7 +56,7 @@ Rules worth knowing:
 | `slug` | yes | lowercase kebab-case, unique across the catalog |
 | `name` | yes | shown on the card |
 | `category` | yes | `database`, `web`, `monitoring`, `storage`, `devtools`, `messaging`, `other` |
-| `icon` | yes | used when the panel has no brand mark for the slug |
+| `icon` | yes | the name of a glyph in the panel's own icon set, shown when the panel has no brand mark for the slug. Not a pictograph: the card shows the product's real logo wherever one exists |
 | `description` | yes | one line |
 | `image` | yes | the upstream image, without the tag |
 | `tag` | yes | a real published tag |
@@ -71,41 +71,36 @@ Rules worth knowing:
 
 ## What is in here
 
-These 17 match the catalog the panel ships. Editing one here changes what every
-install offers, which is the point, but it also means the panel's own copy is no longer what you
-see: a change here is a deliberate override, not a patch.
+These 24 templates **are** the panel's catalog. Dockyard compiles none of them in, so an install
+offers exactly what this repository held the last time it pulled. Adding a template here adds it to
+every Dockyard in the world on the next refresh: no release, no rebuild, no restart.
 
 | Slug | Name | Category | Image |
 | --- | --- | --- | --- |
-| `postgres` | PostgreSQL | database | `postgres:16-alpine` |
-| `mysql` | MySQL | database | `mysql:8.4` |
-| `redis` | Redis | database | `redis:7.4-alpine` |
-| `mongodb` | MongoDB | database | `mongo:7.0` |
 | `adminer` | Adminer | devtools | `adminer:4` |
-| `nginx` | nginx | web | `nginx:1.27-alpine` |
-| `httpd` | Apache httpd | web | `httpd:2.4-alpine` |
-| `wordpress` | WordPress | web | `wordpress:6.7-apache` |
-| `node-app` | Node.js app | devtools | `node:22-alpine` |
-| `python-app` | Python app | devtools | `python:3.12-slim` |
-| `uptime-kuma` | Uptime Kuma | monitoring | `louislam/uptime-kuma:1.23.16` |
-| `grafana` | Grafana | monitoring | `grafana/grafana:11.4.0` |
-| `prometheus` | Prometheus | monitoring | `prom/prometheus:v3.13.4` |
-| `minio` | MinIO | storage | `minio/minio:RELEASE.2025-09-07T16-13-09Z` |
-| `n8n` | n8n | other | `n8nio/n8n:1.123.84` |
-| `rabbitmq` | RabbitMQ | messaging | `rabbitmq:4-management` |
-| `whoami` | whoami | devtools | `traefik/whoami:v1.11.0` |
-
-Extras, which the panel does not ship on its own:
-
-| Slug | Name | Category | Image |
-| --- | --- | --- | --- |
-| `gitea` | Gitea | devtools | `gitea/gitea:1.27.3` |
-| `syncthing` | Syncthing | storage | `syncthing/syncthing:2.1.6` |
-| `filebrowser` | File Browser | storage | `filebrowser/filebrowser:v2.63.23` |
-| `mariadb` | MariaDB | database | `mariadb:11.4` |
 | `caddy` | Caddy | web | `caddy:2.11.7` |
+| `filebrowser` | File Browser | storage | `filebrowser/filebrowser:v2.63.23` |
+| `gitea` | Gitea | devtools | `gitea/gitea:1.27.3` |
+| `grafana` | Grafana | monitoring | `grafana/grafana:11.4.0` |
+| `httpd` | Apache httpd | web | `httpd:2.4-alpine` |
+| `mariadb` | MariaDB | database | `mariadb:11.4` |
 | `memcached` | Memcached | database | `memcached:1.6.45` |
+| `minio` | MinIO | storage | `minio/minio:RELEASE.2025-09-07T16-13-09Z` |
+| `mongodb` | MongoDB | database | `mongo:7.0` |
+| `mysql` | MySQL | database | `mysql:8.4` |
+| `n8n` | n8n | other | `n8nio/n8n:1.123.84` |
+| `nginx` | nginx | web | `nginx:1.27-alpine` |
+| `node-app` | Node.js app | devtools | `node:22-alpine` |
+| `postgres` | PostgreSQL | database | `postgres:16-alpine` |
+| `prometheus` | Prometheus | monitoring | `prom/prometheus:v3.13.4` |
+| `python-app` | Python app | devtools | `python:3.12-slim` |
+| `rabbitmq` | RabbitMQ | messaging | `rabbitmq:4-management` |
+| `redis` | Redis | database | `redis:7.4-alpine` |
+| `syncthing` | Syncthing | storage | `syncthing/syncthing:2.1.6` |
+| `uptime-kuma` | Uptime Kuma | monitoring | `louislam/uptime-kuma:1.23.16` |
 | `vaultwarden` | Vaultwarden | storage | `vaultwarden/server:1.37.4` |
+| `whoami` | whoami | devtools | `traefik/whoami:v1.11.0` |
+| `wordpress` | WordPress | web | `wordpress:6.7-apache` |
 
 ## Precedence
 
@@ -114,15 +109,16 @@ A panel resolves a template from the highest source that offers it:
 1. a template someone edited in the panel
 2. a `*.json` file on that install's own host
 3. this repository
-4. the catalog compiled into the panel
 
-So an install can override anything here with a local file, and pulling can never undo that. See
-`deploy/template-examples/` in the Dockyard repository for the local-file form of the same thing.
+This repository is the lowest of the three, so a pull can never undo local work: an install can
+override anything here with a local file, and a template edited in the panel always wins. Correcting
+a template that ships to everyone means changing it here.
 
-## Generated, mostly
+See `deploy/template-examples/` in the Dockyard repository for the local-file form of the same
+thing.
 
-The files here are produced from the panel's own catalog by
-`scripts/gen-templates-repo.mjs`, so a built-in template and its file cannot drift apart. Extras
-are copied from `deploy/template-examples/`. Editing a file here by hand is fine, but the next
-run of the generator will overwrite it: make the change in the panel's catalog instead if it is a
-template the panel ships.
+## Editing these files
+
+There is no generator any more: the panel used to compile a catalog into the image and this
+repository was produced from it, which meant two copies of every template that could drift apart.
+The panel now pulls from here instead, so these files are the only copy. Edit them directly.

@@ -3,7 +3,7 @@
   "slug": "filebrowser",
   "name": "File Browser",
   "category": "storage",
-  "icon": "📁",
+  "icon": "file",
   "description": "A web file manager over a directory you choose.",
   "image": "filebrowser/filebrowser",
   "tag": "v2.63.23",

@@ -3,7 +3,7 @@
   "slug": "node-app",
   "name": "Node.js app",
   "category": "devtools",
-  "icon": "🟩",
+  "icon": "template",
   "description": "Node.js 22 runtime serving a minimal HTTP server on port 3000.",
   "image": "node",
   "tag": "22-alpine",

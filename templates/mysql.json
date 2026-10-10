@@ -3,7 +3,7 @@
   "slug": "mysql",
   "name": "MySQL",
   "category": "database",
-  "icon": "🐬",
+  "icon": "template",
   "description": "MySQL 8 LTS relational database.",
   "image": "mysql",
   "tag": "8.4",

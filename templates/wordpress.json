@@ -3,7 +3,7 @@
   "slug": "wordpress",
   "name": "WordPress",
   "category": "web",
-  "icon": "📝",
+  "icon": "template",
   "description": "WordPress with the Apache web server.",
   "image": "wordpress",
   "tag": "6.7-apache",

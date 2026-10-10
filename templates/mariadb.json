@@ -3,7 +3,7 @@
   "slug": "mariadb",
   "name": "MariaDB",
   "category": "database",
-  "icon": "🦭",
+  "icon": "template",
   "description": "The MariaDB relational database, a drop-in replacement for MySQL.",
   "image": "mariadb",
   "tag": "11.4",

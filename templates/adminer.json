@@ -3,7 +3,7 @@
   "slug": "adminer",
   "name": "Adminer",
   "category": "devtools",
-  "icon": "🗄️",
+  "icon": "template",
   "description": "Single-file database administration UI for MySQL, PostgreSQL and more.",
   "image": "adminer",
   "tag": "4",

@@ -3,7 +3,7 @@
   "slug": "syncthing",
   "name": "Syncthing",
   "category": "storage",
-  "icon": "🔄",
+  "icon": "template",
   "description": "Continuous file synchronisation between your own devices, with no server in the middle.",
   "image": "syncthing/syncthing",
   "tag": "2.1.6",

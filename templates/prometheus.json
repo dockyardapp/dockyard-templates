@@ -3,7 +3,7 @@
   "slug": "prometheus",
   "name": "Prometheus",
   "category": "monitoring",
-  "icon": "🔥",
+  "icon": "template",
   "description": "Metrics collection and time-series database.",
   "image": "prom/prometheus",
   "tag": "v3.13.4",

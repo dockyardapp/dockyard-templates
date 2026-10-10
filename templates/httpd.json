@@ -3,7 +3,7 @@
   "slug": "httpd",
   "name": "Apache httpd",
   "category": "web",
-  "icon": "🪶",
+  "icon": "template",
   "description": "The Apache HTTP Server.",
   "image": "httpd",
   "tag": "2.4-alpine",

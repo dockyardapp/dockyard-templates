@@ -3,7 +3,7 @@
   "slug": "caddy",
   "name": "Caddy",
   "category": "web",
-  "icon": "🔒",
+  "icon": "template",
   "description": "A web server that obtains and renews its own TLS certificates.",
   "image": "caddy",
   "tag": "2.11.7",

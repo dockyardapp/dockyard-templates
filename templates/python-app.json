@@ -3,7 +3,7 @@
   "slug": "python-app",
   "name": "Python app",
   "category": "devtools",
-  "icon": "🐍",
+  "icon": "template",
   "description": "Python 3.12 runtime serving a directory with the stdlib HTTP server on port 8000.",
   "image": "python",
   "tag": "3.12-slim",

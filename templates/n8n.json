@@ -3,7 +3,7 @@
   "slug": "n8n",
   "name": "n8n",
   "category": "other",
-  "icon": "🔗",
+  "icon": "template",
   "description": "Fair-code workflow automation.",
   "image": "n8nio/n8n",
   "tag": "1.123.84",
